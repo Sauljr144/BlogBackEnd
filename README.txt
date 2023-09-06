@@ -53,11 +53,11 @@ Model // Folder
 LoginModel
     string Username
     string Password
-CreateAccountModel
+CreateAccountModelDTO
     int Id = 0
     string Username
     string Password
-passwordModel
+passwordModelDTO
     string Salt
     string Hash
 
