@@ -71,5 +71,14 @@ namespace BlogBackEnd.Controllers
             return _data.DeleteBlogItem(BlogDelete);
         }
 
+
+        //GetPublishedBlogItems
+        [HttpGet("GetPublishedItems")]
+
+        public IEnumerable<BlogItemModel> GetPublishedItems()
+        {
+            return _data.GetPublishedItems();
+        }
+
     }
 }

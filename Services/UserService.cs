@@ -64,7 +64,7 @@ namespace BlogBackEnd.Services
 
                 var newHashedPassword = HashPassword(UserToAdd.Password);
 
-                // newUser.Id = UserToAdd.Id;
+                newUser.Id = UserToAdd.Id;
                 newUser.Username = UserToAdd.Username;
                 newUser.Salt = newHashedPassword.Salt;
                 newUser.Hash = newHashedPassword.Hash;
