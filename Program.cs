@@ -14,14 +14,16 @@ var connectionString = builder.Configuration.GetConnectionString("MyblogString")
 builder.Services.AddDbContext<DataContext>(options => options.UseSqlServer(connectionString));
 
 //CORS Policy
-builder.Services.AddCors(option => {
- option.AddPolicy("BlogPolicy", 
+builder.Services.AddCors(options => {
+ options.AddPolicy("BlogPolicy", 
  builder =>{
     builder.WithOrigins("http://localhost:5173")
     .AllowAnyHeader()
     .AllowAnyMethod();
  });
 });
+
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -38,7 +40,7 @@ if (app.Environment.IsDevelopment())
 }
 
 // app.UseHttpsRedirection();
-
+app.UseCors("BlogPolicy");
 app.UseAuthorization();
 
 app.MapControllers();
